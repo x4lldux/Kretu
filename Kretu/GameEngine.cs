@@ -61,13 +61,14 @@ namespace Kretu
 		Block[,] lastBoard;
 		List<Figure> figures = new List<Figure> ();
 		Random rnd = new Random();
-		bool kretuMoved = false;
-		bool kretuSquashed = false;
-		bool firstRun = true;
-		bool firstFull = true;
-		bool eaten = false;
+		bool kretuMoved;
+		bool kretuSquashed;
+		bool firstRun;
+		bool firstFull;
+		bool eaten;
 		int kretuMoveDownTicksCounter = 0;
 		int resetCounter = 0;
+		uint gameToclTimeoutID;
 
 		public int Points { get; set; }
 		public bool GameLost { get; set; }
@@ -75,7 +76,8 @@ namespace Kretu
 
 		public GameEngine () {
 			Reset ();
-			GLib.Timeout.Add (800, GameTick);
+
+			gameToclTimeoutID = GLib.Timeout.Add (800, GameTick);
 		}
 
 		public void Reset () {
@@ -114,7 +116,7 @@ namespace Kretu
 			if (!firstRun) {
 				lastBoard = (Block[,]) board.Clone ();
 
-				if (!eaten && MoveFigures () == 0 && firstFull) {
+				if (MoveFigures () == 0 && firstFull) {
 					List<int> freePos = new List<int> ();
 					for (int i = 0; i < BoardWidth; i++) {
 						if (board[i, BoardHeight - 1] == null)
@@ -310,7 +312,7 @@ namespace Kretu
 						board[fig.Blocks[i].X, fig.Blocks[i].Y] = null;
 						fig.Blocks[i] = null;
 					}
-					eaten = true;;
+					eaten = true;
 					figures.Remove (fig);
 
 					Points++;
@@ -318,6 +320,10 @@ namespace Kretu
 				board[Block.Kretu.X, Block.Kretu.Y] = Block.Kretu;
 			}
 
+//			if (Draw != null)
+			//				Draw (this, new DrawEventArgs (figures, board));
+			GLib.Source.Remove (gameToclTimeoutID);
+			gameToclTimeoutID = GLib.Timeout.Add (800, GameTick);
 			GameTick ();
 		}
 

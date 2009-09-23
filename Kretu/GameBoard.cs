@@ -88,6 +88,8 @@ namespace Kretu
 		}
 
 		public void DrawBoard (List<Figure> figures, Block[,] board) {
+			
+
 			foreach (var f in figures) {
 				if (!figColsSymbols.ContainsKey (f))
 					figColsSymbols.Add (f, new FigureColorNSymbol {
