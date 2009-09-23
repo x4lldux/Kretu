@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kretu", "Kretu\Kretu.csproj", "{3BB0DD8F-5CCF-4510-81EC-BE52999D2BCF}"
+EndProject
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Packages.mdproj", "{7A797A06-DA35-4FDA-81BE-0C379A221BFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BB0DD8F-5CCF-4510-81EC-BE52999D2BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB0DD8F-5CCF-4510-81EC-BE52999D2BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB0DD8F-5CCF-4510-81EC-BE52999D2BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB0DD8F-5CCF-4510-81EC-BE52999D2BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A797A06-DA35-4FDA-81BE-0C379A221BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A797A06-DA35-4FDA-81BE-0C379A221BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Kretu\Kretu.csproj
+	EndGlobalSection
+EndGlobal

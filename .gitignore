@@ -1,0 +1,8 @@
+obj
+bin
+*.csproj.user
+*.suo
+*.cache
+*~
+.*~.cs
+*.userprefs
